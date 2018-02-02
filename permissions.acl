@@ -14,7 +14,7 @@ rule EverybodyCanSubmitTransactions {
     action: ALLOW
 }
 
-rule VoterasFullAccessToTheirAssets {
+rule VotersFullAccessToTheirVotes {
     description: "Allow all participants full access to their assets"
     participant(p): "lol.hyper.voting.BaseParticipant"
     operation: ALL

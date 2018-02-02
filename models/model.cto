@@ -18,13 +18,14 @@ asset Poll extends BaseAsset {
   o Boolean available optional
   o String name optional
   o String description optional
-  --> Party lastModifiedBy optional
+  --> PollAdmin lastModifiedBy optional
   --> Question[] questions optional
 }
 
 asset Question extends BaseAsset {
   o String name optional
   o String description optional
+  o Integer maxVotesAllowed optional
   --> Answer[] answers optional
 }
 
@@ -32,7 +33,7 @@ asset Answer extends BaseAsset {
   o String answerText optional
 }
 
-participant Party extends BaseParticipant {
+participant PollAdmin extends BaseParticipant {
   o String name optional
 }
 
@@ -51,7 +52,7 @@ transaction RegisterVoter extends BaseTransaction {
   o String name
 }
 
-transaction SendVote extends BaseTransaction {
+transaction SendBallot extends BaseTransaction {
   o String voterID
   o String pollID
   o String[] answerIDs
