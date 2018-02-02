@@ -1,4 +1,4 @@
-namespace lol.hyper.voting
+namespace com.hack4future.voting
 
 abstract asset BaseAsset identified by id {
   o String id
