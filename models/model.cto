@@ -1,7 +1,18 @@
 namespace lol.hyper.voting
 
-asset Poll identified by id {
+abstract asset BaseAsset identified by id {
   o String id
+}
+
+abstract participant BaseParticipant identified by id {
+  o String id
+}
+
+abstract transaction BaseTransaction {
+
+}
+
+asset Poll extends BaseAsset {
   o DateTime activeStartTime optional
   o DateTime activeEndTime optional
   o Boolean available optional
@@ -11,38 +22,29 @@ asset Poll identified by id {
   --> Question[] questions optional
 }
 
-asset Question identified by id {
-  o String id
+asset Question extends BaseAsset {
   o String name optional
   o String description optional
   --> Answer[] answers optional
 }
 
-asset Answer identified by id {
-  o String id
+asset Answer extends BaseAsset {
   o String answerText optional
 }
 
-participant Party identified by id {
-  o String id
+participant Party extends BaseParticipant {
   o String name optional
 }
 
-asset Ballot identified by id {
-  o String id
+asset Ballot extends BaseAsset {
   o DateTime commited optional
   --> Poll poll optional
   --> Answer[] answers optional
   --> Voter voter optional
 }
 
-participant Voter identified by id {
-  o String id
+participant Voter extends BaseParticipant {
   o String name optional
-}
-
-abstract transaction BaseTransaction {
-
 }
 
 transaction RegisterVoter extends BaseTransaction {
