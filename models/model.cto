@@ -1,0 +1,79 @@
+namespace lol.hyper.voting
+
+asset Poll identified by id {
+  o String id
+  o DateTime activeStartTime optional
+  o DateTime activeEndTime optional
+  o Boolean available optional
+  o String name optional
+  o String description optional
+  --> Party lastModifiedBy optional
+  --> Question[] questions optional
+}
+
+asset Question identified by id {
+  o String id
+  o String name optional
+  o String description optional
+  --> Answer[] answers optional
+}
+
+asset Answer identified by id {
+  o String id
+  o String answerText optional
+}
+
+participant Party identified by id {
+  o String id
+  o String name optional
+}
+
+asset Ballot identified by id {
+  o String id
+  o DateTime commited optional
+  --> Poll poll optional
+  --> Answer[] answers optional
+  --> Voter voter optional
+}
+
+participant Voter identified by id {
+  o String id
+  o String name optional
+}
+
+abstract transaction BaseTransaction {
+
+}
+
+transaction RegisterVoter extends BaseTransaction {
+  o String name
+}
+
+transaction SendVote extends BaseTransaction {
+  o String voterID
+  o String pollID
+  o String[] answerIDs
+}
+
+transaction RegisterPoll extends BaseTransaction {
+  o String partyID
+  o String name
+  o String activeStartTime optional
+  o String activeEndTime optional
+  o String description optional
+}
+
+transaction RegisterQuestionToPoll extends BaseTransaction {
+  o String pollID
+  o String name
+  o String description optional
+  o String[] answers
+}
+
+transaction GetMyPolls extends BaseTransaction {
+  o String voterID
+}
+
+transaction GetPollResults extends BaseTransaction {
+  o String pollID
+}
