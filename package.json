@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "devDependencies": {
     "lodash": "^4.17.4"
   },
@@ -6,15 +7,29 @@
   "version": "0.21.34",
   "main": "index.js",
   "private": false,
+=======
+  "name": "vote-ledger",
+  "description": "Voting network.",
+  "version": "0.0.1",
+>>>>>>> 2ba4124a5bc767e96fa52dda5aba56d43c4b07e5
   "repository": {
     "type": "git",
-    "url": "https://github.com/hyperledger/composer-sample-networks"
+    "url": "https://github.com/Niespo/block-vote-ledger"
   },
   "keywords": [
     "blockchain",
     "hyperledger",
     "solutions"
   ],
+<<<<<<< HEAD
   "author": "Hyperledger Composer",
   "license": "Apache-2.0"
 }
+=======
+  "author": "Hack4Future",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "uuid": "^3.2.1"
+  }
+}
+>>>>>>> 2ba4124a5bc767e96fa52dda5aba56d43c4b07e5
