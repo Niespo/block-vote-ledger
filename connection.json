@@ -21,6 +21,6 @@
             "url" : "grpc://h4fyxwaoa-orderer0:7050"
         }
     ],
-    "channel": "mychannel",
+    "channel": "composerchannel",
     "timeout": 300
   }
