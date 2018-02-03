@@ -1,24 +1,24 @@
 rule EverybodyCanReadEverything {
     description: "Allow all participants read access to all resources"
-    participant: "lol.hyper.voting.BaseParticipant"
+    participant: "com.hack4future.voting.BaseParticipant"
     operation: READ
-    resource: "lol.hyper.voting.*"
+    resource: "com.hack4future.voting.*"
     action: ALLOW
 }
 
 rule EverybodyCanSubmitTransactions {
     description: "Allow all participants to submit transactions"
-    participant: "lol.hyper.voting.BaseParticipant"
+    participant: "com.hack4future.voting.BaseParticipant"
     operation: CREATE
-    resource: "lol.hyper.voting.BaseTransaction"
+    resource: "com.hack4future.voting.BaseTransaction"
     action: ALLOW
 }
 
 rule VotersFullAccessToTheirVotes {
     description: "Allow all participants full access to their assets"
-    participant(p): "lol.hyper.voting.BaseParticipant"
+    participant(p): "com.hack4future.voting.BaseParticipant"
     operation: ALL
-    resource(r): "lol.hyper.voting.BaseAsset"
+    resource(r): "com.hack4future.voting.BaseAsset"
     condition: (r.owner.getIdentifier() === p.getIdentifier())
     action: ALLOW
 }
