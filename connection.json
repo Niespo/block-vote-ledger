@@ -1,0 +1,26 @@
+{
+    "name": "vote-ledger",
+    "type": "hlfv1",
+    "mspID": "Org1MSP",
+    "peers": [
+        {
+            "requestURL": "grpc://h4fyxwaoa-peer0:7051",
+            "eventURL": "grpc://h4fyxwaoa-peer0:7053"
+        },
+        {
+            "requestURL": "grpc://h4fyxwaoa-peer1:7051",
+            "eventURL": "grpc://h4fyxwaoa-peer1:7053"
+        }
+    ],
+    "ca": {
+        "url": "http://h4fyxwaoa-ca0:7054",
+        "name": "ca.org1.example.com"
+    },
+    "orderers": [
+        {
+            "url" : "grpc://h4fyxwaoa-orderer0:7050"
+        }
+    ],
+    "channel": "composerchannel",
+    "timeout": 300
+  }
